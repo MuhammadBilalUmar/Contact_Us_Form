@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.ContactUsForm = this.formBuilder.group({
             Name: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            Phone: ['', Validators.required],
             Subject: ['', Validators.required],
             Body: ['', Validators.required],
             Attachement: ['', Validators.required]
