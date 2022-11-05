@@ -1,0 +1,71 @@
+<!-- main app container -->
+<div class="card m-3">
+  <h5 class="card-header text-center">Contact Us</h5>
+  <div class="card-body">
+    <form [formGroup]="ContactUsForm" (ngSubmit)="onSubmit()">
+      <div class="form-row"></div>
+      <div class="form-group">
+        <label> Name</label>
+        <input
+          type="text"
+          formControlName="Name"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.Name.errors }"
+        />
+        <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+          <div *ngIf="f.Name.errors.required">Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input
+          type="text"
+          formControlName="Subject"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.Subject.errors }"
+        />
+        <div *ngIf="submitted && f.Subject.errors" class="invalid-feedback">
+          <div *ngIf="f.Subject.errors.required">Subject is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Body</label>
+        <textarea
+          type="text"
+          formControlName="Body"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.Body.errors }"
+        ></textarea>
+        <div *ngIf="submitted && f.Body.errors" class="invalid-feedback">
+          <div *ngIf="f.Body.errors.required">Body is required</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Attachement</label>
+          <input
+            type="file"
+            formControlName="Attachement"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.Attachement.errors }"
+          />
+          <div
+            *ngIf="submitted && f.Attachement.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.Attachement.errors.required">
+              Attachement is required
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">
+          Cancel
+        </button>
+        <button class="btn btn-primary ml-1">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
