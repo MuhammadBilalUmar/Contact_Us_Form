@@ -64,6 +64,7 @@
           <label>Attachment</label>
           <input
             type="file"
+            name='files[]' multiple
             formControlName="Attachement"
             class="form-control"
             [ngClass]="{ 'is-invalid': submitted && f.Attachement.errors }"
